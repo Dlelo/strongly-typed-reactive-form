@@ -13,28 +13,28 @@
   </div>
   <div>
     <mat-form-field>
-      <mat-label>Gender</mat-label>
-      <mat-select
-      formControlName="genders"
-    >
-      <mat-option
-      [value]="gender.id"
-        *ngFor="let gender of genders"
-      >
-        {{ gender.name }}
-      </mat-option>
-    </mat-select>
-      <mat-error> Gender is required</mat-error>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field>
       <mat-label>Email</mat-label>
       <input 
       matInput type="email" 
       placeholder="Enter your email" 
       formControlName="email">
       <mat-error> Email is required</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <mat-select
+      formControlName="ages"
+    >
+      <mat-option
+      [value]="age.id"
+        *ngFor="let age of ages"
+      >
+        {{ age.range }}
+      </mat-option>
+    </mat-select>
+      <mat-error> Age is required</mat-error>
     </mat-form-field>
   </div>
   <div>

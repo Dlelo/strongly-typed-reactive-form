@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,7 +12,7 @@ interface RegisterForm  {
   username: FormControl<string | null>;
   email: FormControl<string | null>;
   password:FormControl<string | null>;
-  gender:FormControl<string | null>
+  ages:FormControl<string | null>
 
 }
 
@@ -34,20 +34,31 @@ interface RegisterForm  {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'Angular reactive form';
 
   registerForm: FormGroup<RegisterForm> = new FormGroup({
     username: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    gender: new FormControl('', [Validators.required]),
+    ages: new FormControl('', [Validators.required]),
   });
 
-  genders = [
-    {id:1, name:'male'},
-    {id:2, name:'female'},
-    {id:2, name:'other'}
+
+
+  constructor(private fb: FormBuilder) {}
+
+
+  // registerFormTwo = this.fb.group({
+  //   username: ['', Validators.required],
+  //   email: ['', [Validators.required, Validators.email]],
+  //   password: ['', Validators.required],
+  // });
+
+  ages = [
+    {id:1, range:'18 years and below'},
+    {id:2, range:'Below 35 years'},
+    {id:2, range:'Above 35 years'}
   ]
 
 onRegister(): void {
